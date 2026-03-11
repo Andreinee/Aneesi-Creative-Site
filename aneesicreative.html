@@ -327,43 +327,75 @@
     .stat__n span { color:var(--red); }
     .stat__l { font-size:.875rem; color:var(--muted); }
 
-    /* ─── TESTIMONIALS ─── */
+    /* ─── TESTIMONIALS (floating cards) ─── */
     .testi {
       padding:clamp(80px,12vw,160px) 0;
       background:var(--bg2); position:relative; overflow:hidden;
     }
     .testi__glow {
       position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-      width:800px; height:500px; pointer-events:none;
-      background:radial-gradient(ellipse, rgba(232,25,60,.055) 0%,transparent 70%);
+      width:1000px; height:700px; pointer-events:none;
+      background:radial-gradient(ellipse, rgba(232,25,60,.06) 0%,transparent 70%);
     }
-    .testi__inner { position:relative; z-index:1; text-align:center; max-width:860px; margin:0 auto; }
-    .testi-item { display:none; }
-    .testi-item.on { display:block; animation:fadeIn .5s ease; }
-    @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
-    .testi__qm {
-      font-family:'Syne',sans-serif; font-size:100px; line-height:.6; font-weight:800;
-      color:var(--red); opacity:.18; margin-bottom:20px;
+    .testi__cards {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+      margin-top:clamp(40px,5vw,64px); align-items:start;
+      perspective:1400px;
     }
-    .testi__quote {
+    .tc {
+      background:var(--glass); border:1px solid var(--glass-bd); border-radius:var(--r);
+      padding:clamp(28px,3vw,40px); position:relative; overflow:hidden;
+      transform-style:preserve-3d; will-change:transform;
+      transition:box-shadow .4s ease, border-color .4s ease;
+      cursor:default;
+    }
+    .tc:nth-child(1) { animation:floatCard1 7s ease-in-out infinite; }
+    .tc:nth-child(2) { animation:floatCard2 9s ease-in-out infinite; }
+    .tc:nth-child(3) { animation:floatCard3 8s ease-in-out infinite; }
+    @keyframes floatCard1 { 0%,100%{transform:translateY(0)}    50%{transform:translateY(-12px)} }
+    @keyframes floatCard2 { 0%,100%{transform:translateY(32px)} 50%{transform:translateY(18px)} }
+    @keyframes floatCard3 { 0%,100%{transform:translateY(16px)} 50%{transform:translateY(4px)} }
+    .tc.tilting { animation-play-state:paused; }
+    .tc::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(circle at var(--mx,30%) var(--my,30%), rgba(232,25,60,.09) 0%, transparent 60%);
+      opacity:0; transition:opacity .35s; pointer-events:none;
+    }
+    .tc::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg, var(--red), transparent);
+      transform:scaleX(0); transform-origin:left; transition:transform .45s ease;
+    }
+    .tc:hover { border-color:rgba(232,25,60,.28); box-shadow:0 40px 80px rgba(0,0,0,.5), 0 0 50px rgba(232,25,60,.09); }
+    .tc:hover::before { opacity:1; }
+    .tc:hover::after  { transform:scaleX(1); }
+    .tc__stars { display:flex; gap:4px; margin-bottom:20px; }
+    .tc__star  { color:var(--red); font-size:13px; }
+    .tc__qm {
+      font-family:'Syne',sans-serif; font-size:64px; line-height:.7; font-weight:800;
+      color:var(--red); opacity:.15; margin-bottom:14px; user-select:none;
+    }
+    .tc__quote {
       font-family:'Syne',sans-serif; font-style:italic; font-weight:500;
-      font-size:clamp(20px,2.8vw,32px); line-height:1.45; color:#fff; margin-bottom:36px;
+      font-size:clamp(14px,1.25vw,17px); line-height:1.68; color:rgba(255,255,255,.85);
+      margin-bottom:28px; position:relative; z-index:1;
     }
-    .testi__who { display:flex; align-items:center; justify-content:center; gap:14px; }
-    .testi__av {
-      width:46px; height:46px; border-radius:50%; flex-shrink:0;
+    .tc__who {
+      display:flex; align-items:center; gap:12px;
+      border-top:1px solid var(--glass-bd); padding-top:20px; position:relative; z-index:1;
+    }
+    .tc__av {
+      width:42px; height:42px; border-radius:50%; flex-shrink:0;
       background:linear-gradient(135deg,var(--red),#7d0d1e);
       display:flex; align-items:center; justify-content:center;
-      font-family:'Syne',sans-serif; font-weight:700; font-size:.9375rem; color:#fff;
+      font-family:'Syne',sans-serif; font-weight:700; font-size:.875rem; color:#fff;
     }
-    .testi__name { font-family:'Syne',sans-serif; font-size:.9375rem; font-weight:700; color:#fff; }
-    .testi__co   { font-size:.8125rem; color:var(--muted); margin-top:2px; }
-    .testi__dots { display:flex; justify-content:center; gap:8px; margin-top:44px; }
-    .testi__dot  {
-      width:8px; height:8px; border-radius:4px; border:none;
-      background:var(--glass-bd); cursor:pointer; transition:all .25s;
+    .tc__name { font-family:'Syne',sans-serif; font-size:.9rem; font-weight:700; color:#fff; }
+    .tc__co   { font-size:.8rem; color:var(--muted); margin-top:2px; }
+    @media(max-width:768px){
+      .testi__cards { grid-template-columns:1fr; }
+      .tc:nth-child(1),.tc:nth-child(2),.tc:nth-child(3){ animation:floatCard1 7s ease-in-out infinite; }
     }
-    .testi__dot.on { background:var(--red); width:24px; }
 
     /* ─── FAQ ─── */
     .faq { padding:clamp(80px,12vw,160px) 0; background:var(--bg); }
@@ -1214,60 +1246,62 @@
       <h2 class="h-display">Results that <em>speak.</em></h2>
     </div>
 
-    <div class="testi__inner" data-reveal>
-      <!-- Slide 1 -->
-      <div class="testi-item on" role="article" aria-label="Testimonial from Sarah Kamau">
-        <div class="testi__qm" aria-hidden="true">"</div>
-        <blockquote class="testi__quote">
-          "Aneesi didn't just redesign our brand — they redefined how we think about ourselves.
-          The new identity gave our whole team a fresh sense of purpose, and our clients noticed immediately."
+    <div class="testi__cards">
+
+      <!-- Card 1 -->
+      <article class="tc" role="article" aria-label="Testimonial from Sarah Kamau" data-reveal>
+        <div class="tc__stars" aria-label="5 stars">
+          <span class="tc__star">★</span><span class="tc__star">★</span><span class="tc__star">★</span><span class="tc__star">★</span><span class="tc__star">★</span>
+        </div>
+        <div class="tc__qm" aria-hidden="true">"</div>
+        <blockquote class="tc__quote">
+          "Aneesi didn't just redesign our brand — they redefined how we think about ourselves. The new identity gave our whole team a fresh sense of purpose, and our clients noticed immediately."
         </blockquote>
-        <div class="testi__who">
-          <div class="testi__av" aria-hidden="true">SK</div>
+        <div class="tc__who">
+          <div class="tc__av" aria-hidden="true">SK</div>
           <div>
-            <p class="testi__name">Sarah Kamau</p>
-            <p class="testi__co">CEO, Elevate Fintech</p>
+            <p class="tc__name">Sarah Kamau</p>
+            <p class="tc__co">CEO, Elevate Fintech</p>
           </div>
         </div>
-      </div>
+      </article>
 
-      <!-- Slide 2 -->
-      <div class="testi-item" role="article" aria-label="Testimonial from Tunde Okafor">
-        <div class="testi__qm" aria-hidden="true">"</div>
-        <blockquote class="testi__quote">
-          "The website they built for us doesn't just look incredible — it works.
-          Leads are up, bounce rate is down, and we finally have a digital presence we're proud to share."
+      <!-- Card 2 -->
+      <article class="tc" role="article" aria-label="Testimonial from Tunde Okafor" data-reveal>
+        <div class="tc__stars" aria-label="5 stars">
+          <span class="tc__star">★</span><span class="tc__star">★</span><span class="tc__star">★</span><span class="tc__star">★</span><span class="tc__star">★</span>
+        </div>
+        <div class="tc__qm" aria-hidden="true">"</div>
+        <blockquote class="tc__quote">
+          "The website they built for us doesn't just look incredible — it works. Leads are up, bounce rate is down, and we finally have a digital presence we're proud to share."
         </blockquote>
-        <div class="testi__who">
-          <div class="testi__av" aria-hidden="true">TO</div>
+        <div class="tc__who">
+          <div class="tc__av" aria-hidden="true">TO</div>
           <div>
-            <p class="testi__name">Tunde Okafor</p>
-            <p class="testi__co">Founder, Novu Studio</p>
+            <p class="tc__name">Tunde Okafor</p>
+            <p class="tc__co">Founder, Novu Studio</p>
           </div>
         </div>
-      </div>
+      </article>
 
-      <!-- Slide 3 -->
-      <div class="testi-item" role="article" aria-label="Testimonial from Amara Mensah">
-        <div class="testi__qm" aria-hidden="true">"</div>
-        <blockquote class="testi__quote">
-          "Working with Aneesi felt like having a full creative department on call.
-          They pushed our thinking, challenged the brief, and delivered something we genuinely couldn't have imagined ourselves."
+      <!-- Card 3 -->
+      <article class="tc" role="article" aria-label="Testimonial from Amara Mensah" data-reveal>
+        <div class="tc__stars" aria-label="5 stars">
+          <span class="tc__star">★</span><span class="tc__star">★</span><span class="tc__star">★</span><span class="tc__star">★</span><span class="tc__star">★</span>
+        </div>
+        <div class="tc__qm" aria-hidden="true">"</div>
+        <blockquote class="tc__quote">
+          "Working with Aneesi felt like having a full creative department on call. They pushed our thinking, challenged the brief, and delivered something we genuinely couldn't have imagined ourselves."
         </blockquote>
-        <div class="testi__who">
-          <div class="testi__av" aria-hidden="true">AM</div>
+        <div class="tc__who">
+          <div class="tc__av" aria-hidden="true">AM</div>
           <div>
-            <p class="testi__name">Amara Mensah</p>
-            <p class="testi__co">Marketing Director, Forma Wellness</p>
+            <p class="tc__name">Amara Mensah</p>
+            <p class="tc__co">Marketing Director, Forma Wellness</p>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="testi__dots" role="tablist" aria-label="Testimonial navigation">
-        <button class="testi__dot on" role="tab" aria-selected="true"  aria-label="Testimonial 1" data-i="0"></button>
-        <button class="testi__dot"    role="tab" aria-selected="false" aria-label="Testimonial 2" data-i="1"></button>
-        <button class="testi__dot"    role="tab" aria-selected="false" aria-label="Testimonial 3" data-i="2"></button>
-      </div>
     </div>
   </div>
 </section>
@@ -1544,23 +1578,28 @@
     });
   });
 
-  /* ── Testimonial carousel ── */
-  const slides = document.querySelectorAll('.testi-item');
-  const dots   = document.querySelectorAll('.testi__dot');
-  let cur = 0, timer;
-
-  function goTo(idx) {
-    slides[cur].classList.remove('on');
-    dots[cur].classList.remove('on');
-    dots[cur].setAttribute('aria-selected', 'false');
-    cur = idx;
-    slides[cur].classList.add('on');
-    dots[cur].classList.add('on');
-    dots[cur].setAttribute('aria-selected', 'true');
-  }
-  dots.forEach(d => d.addEventListener('click', () => { clearInterval(timer); goTo(+d.dataset.i); startTimer(); }));
-  function startTimer() { timer = setInterval(() => goTo((cur + 1) % slides.length), 5000); }
-  startTimer();
+  /* ── Testimonial card 3D tilt ── */
+  document.querySelectorAll('.tc').forEach(card => {
+    card.addEventListener('mouseenter', () => card.classList.add('tilting'));
+    card.addEventListener('mouseleave', () => {
+      card.classList.remove('tilting');
+      card.style.transform = '';
+    });
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      const x  = e.clientX - r.left;
+      const y  = e.clientY - r.top;
+      const cx = r.width  / 2;
+      const cy = r.height / 2;
+      const rotX = ((y - cy) / cy) * -9;
+      const rotY = ((x - cx) / cx) *  9;
+      const pctX = Math.round((x / r.width)  * 100);
+      const pctY = Math.round((y / r.height) * 100);
+      card.style.setProperty('--mx', pctX + '%');
+      card.style.setProperty('--my', pctY + '%');
+      card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-10px) scale(1.02)`;
+    });
+  });
 
   /* ── Cybernetic Grid Shader (hero background) ── */
   (function () {
