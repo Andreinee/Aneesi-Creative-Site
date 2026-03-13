@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work — Aneesi Creative</title>
+  <meta name="description" content="Browse Aneesi Creative's portfolio — brand identity, web design, campaigns, UI/UX and more across 8 industries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="nav__wrap">
+    <a href="index.html" class="nav__logo" aria-label="Aneesi Creative — Home">
+      <img src="Brand Assets/ANEESI logo-34.png" alt="Aneesi Creative" />
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html" style="color:#fff">Work</a></li>
+      <li><a href="our-services.html">Our Services</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="index.html#contact" class="btn btn-red">Start a Project</a>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<nav class="nav__drawer" id="navDrawer" aria-label="Mobile navigation">
+  <a href="about.html"        class="drawer-link">About</a>
+  <a href="services.html"     class="drawer-link">Services</a>
+  <a href="work.html"         class="drawer-link">Work</a>
+  <a href="our-services.html" class="drawer-link">Our Services</a>
+  <a href="faq.html"          class="drawer-link">FAQ</a>
+  <a href="blog.html"         class="drawer-link">Blog</a>
+  <a href="index.html#contact" class="btn btn-red">Start a Project</a>
+</nav>
+
+<!-- ═══════════════════════════ PAGE HERO ═══════════════════════════ -->
+<div class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Selected Work</p>
+    <h1 class="page-hero__h1">Design in Action</h1>
+    <p class="page-hero__sub">Projects built with purpose. Outcomes measured in impact.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ WORK ═══════════════════════════ -->
+<section class="work" id="work" aria-label="Selected work">
+  <div class="container">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Selected Work</p>
+      <h2 class="h-display">Our Work: <span class="accent">Design in Action</span></h2>
+      <p style="margin-top:16px;font-size:clamp(15px,1.4vw,18px);color:var(--body);max-width:580px;line-height:1.7;">Building our portfolio of signature design projects that inspire and transform brands.</p>
+    </div>
+
+    <div class="work__filters" data-reveal>
+      <button class="wf-btn active">All</button>
+      <button class="wf-btn">Branding</button>
+      <button class="wf-btn">Web Design</button>
+      <button class="wf-btn">UI/UX</button>
+      <button class="wf-btn">Print</button>
+    </div>
+
+    <div class="work__grid" role="list">
+
+      <!-- Hero project -->
+      <article class="wi wi--hero p1" role="listitem" data-reveal="scale">
+        <div class="wi__vis"></div>
+        <span class="wi__tag">Brand Identity</span>
+        <div class="wi__bar">
+          <p class="wi__name">Elevate Fintech</p>
+          <p class="wi__cat">Brand Identity · Digital Design</p>
+          <p class="wi__res">↑ 68% increase in qualified leads post-rebrand</p>
+        </div>
+      </article>
+
+      <!-- Small grid -->
+      <article class="wi wi--a p2" role="listitem" data-reveal>
+        <div class="wi__vis"></div>
+        <span class="wi__tag">Web Design</span>
+        <div class="wi__overlay">
+          <p class="wi__name">Novu Studio</p>
+          <p class="wi__cat">Web &amp; Digital</p>
+          <p class="wi__res">3× conversion uplift</p>
+        </div>
+      </article>
+
+      <article class="wi wi--b p3" role="listitem" data-reveal>
+        <div class="wi__vis"></div>
+        <span class="wi__tag">Campaign</span>
+        <div class="wi__overlay">
+          <p class="wi__name">Forma Wellness</p>
+          <p class="wi__cat">Campaign · Content</p>
+          <p class="wi__res">2.1M impressions in 30 days</p>
+        </div>
+      </article>
+
+      <article class="wi wi--c p4" role="listitem" data-reveal>
+        <div class="wi__vis"></div>
+        <span class="wi__tag">Packaging</span>
+        <div class="wi__overlay">
+          <p class="wi__name">Kota Foods</p>
+          <p class="wi__cat">Packaging · Print</p>
+          <p class="wi__res">Stocked in 40+ retail outlets</p>
+        </div>
+      </article>
+
+      <article class="wi wi--d p5" role="listitem" data-reveal>
+        <div class="wi__vis"></div>
+        <span class="wi__tag">UI/UX</span>
+        <div class="wi__overlay">
+          <p class="wi__name">Pulse Health</p>
+          <p class="wi__cat">UI/UX · Product</p>
+          <p class="wi__res">4.8★ App Store rating</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="work__foot" data-reveal>
+      <a href="index.html#contact" class="btn btn-ghost btn-lg">See Full Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CTA ═══════════════════════════ -->
+<section class="cta" id="cta" aria-label="Start a project">
+  <div class="cta__glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta__inner" data-reveal>
+      <p class="eyebrow" style="justify-content:center;margin-bottom:20px">Let's Connect</p>
+      <p class="cta__mis">Make It Seen<span class="accent">.</span></p>
+      <h2 class="cta__h2">Start Your<br><span class="accent">Design Journey</span></h2>
+      <p class="cta__sub">We're ready to create something remarkable with you. Whether you need a complete brand overhaul or a targeted campaign — the work starts with a conversation.</p>
+      <div class="cta__btns">
+        <a href="index.html#contact" class="btn btn-red btn-lg">Start a Project</a>
+        <a href="work.html" class="btn btn-ghost btn-lg">View Portfolio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <img src="Brand Assets/ANEESI logo-34.png" alt="Aneesi Creative" class="footer__logo" />
+        <p class="footer__tag">Make It Seen.</p>
+        <p class="footer__desc">Bold. Strategic. Design. Transforming brands through purposeful craft and creative that moves people.</p>
+        <div class="footer__soc" aria-label="Social media">
+          <a href="#" class="footer__sl" aria-label="Instagram"><i data-lucide="instagram" width="15" height="15"></i></a>
+          <a href="#" class="footer__sl" aria-label="LinkedIn"><i data-lucide="linkedin" width="15" height="15"></i></a>
+          <a href="#" class="footer__sl" aria-label="Twitter / X"><i data-lucide="twitter" width="15" height="15"></i></a>
+          <a href="#" class="footer__sl" aria-label="Behance"><i data-lucide="globe" width="15" height="15"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer__col-h">Services</p>
+        <ul class="footer__col-l" role="list">
+          <li><a href="services.html">Brand Identity</a></li>
+          <li><a href="services.html">Web &amp; Digital</a></li>
+          <li><a href="services.html">Campaigns</a></li>
+          <li><a href="services.html">UI/UX Design</a></li>
+          <li><a href="services.html">Packaging &amp; Print</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__col-h">Studio</p>
+        <ul class="footer__col-l" role="list">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="work.html">Our Work</a></li>
+          <li><a href="index.html#testimonials">Client Stories</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__col-h">Contact</p>
+        <ul class="footer__col-l" role="list">
+          <li><a href="mailto:hello@aneesicreative.com">hello@aneesicreative.com</a></li>
+          <li><a href="index.html#contact">Start a Project</a></li>
+          <li><a href="index.html#contact">Request a Quote</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer__bot">
+      <p class="footer__copy">© 2025 Aneesi Creative. All rights reserved.</p>
+      <p class="footer__credit">Crafted with <span>♥</span> by Aneesi Creative</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
